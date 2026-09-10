@@ -1,1 +1,1 @@
-# Metelin Kostya practice
+# Kostya practice
