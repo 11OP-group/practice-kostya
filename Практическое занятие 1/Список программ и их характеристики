@@ -29,6 +29,7 @@ Visual Studio (VS)
     5. Ключевые расширения/плагины:
     • Встроенные: IntelliSense, отладчик, Git, Azure DevOps, SQL Server, поддержка .NET 10, AI (GitHub Copilot).
     • Сторонние: ReSharper, Visual Assist, Python, Live Share, CodeMaid.
+
 Visual Studio Code (VS Code)
     1. Актуальная версия: 1.105 (обновляется ежемесячно).
     2. Системные требования:
