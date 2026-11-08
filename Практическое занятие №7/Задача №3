@@ -1,1 +1,77 @@
+def cafe_menu():
+    print("☕ ДОБРО ПОЖАЛОВАТЬ В КАФЕ! ☕")
+    print("1. Кофе — 120 руб")
+    print("2. Чай — 80 руб")
+    print("3. Сок — 100 руб")
+    print("4. Вода — 50 руб")
+    print("5. Лимонад — 90 руб")
 
+    # Считываем выбор пользователя (номер или название)
+    choice = input("Выберите напиток (номер или название): ").lower()
+    # Считываем количество порций (целое число)
+    quantity = int(input("Введите количество порций: "))
+
+    # Переменные для хранения названия и цены
+    name = ""
+    price = 0
+
+    # Используем match-case для выбора напитка
+    match choice:
+        case "1" | "кофе":
+            name = "Кофе ☕"
+            price = 120
+        case "2" | "чай":
+            name = "Чай 🍵"
+            price = 80
+        case "3" | "сок":
+            name = "Сок 🧃"
+            price = 100
+        case "4" | "вода":
+            name = "Вода 💧"
+            price = 50
+        case "5" | "лимонад":
+            name = "Лимонад 🍹"
+            price = 90
+        case _:
+            print("Ошибка: такого напитка нет в меню.")
+            return # Выходим из функции, если ввели ерунду
+
+    # Считаем общую сумму без скидки
+    total = price * quantity
+
+    # Проверяем наличие скидки
+    discount_code = input("Введите код скидки (или нажмите Enter): ").upper()
+    discount = 0
+    if discount_code == "STUDENT":
+        discount = total * 0.20 # 20% скидка
+        print(f'Скидка "STUDENT" (20%): -{discount:.0f} руб')
+    elif discount_code != "":
+        print("Неизвестный код скидки. Скидка не применена.")
+
+    # Считаем итоговую сумму к оплате
+    final_price = total - discount
+
+    # Правильное склонение слова "порция"
+    if quantity == 1:
+        word = "порция"
+    elif 2 <= quantity <= 4:
+        word = "порции"
+    else:
+        word = "порций"
+
+    # Красивый вывод квитанции
+    print("\n" + "=" * 40)
+    print("         🧾 КВИТАНЦИЯ КАФЕ 🧾")
+    print("=" * 40)
+    print(f"Товар: {name}")
+    print(f"Цена за порцию: {price} руб")
+    print(f"Количество: {quantity} {word}")
+    print(f"Сумма: {total} руб")
+    if discount > 0:
+        print(f"Скидка: -{discount:.0f} руб")
+    print("-" * 40)
+    print(f"💰 К ОПЛАТЕ: {final_price:.0f} руб")
+    print("=" * 40)
+
+# Запускаем функцию
+cafe_menu()
