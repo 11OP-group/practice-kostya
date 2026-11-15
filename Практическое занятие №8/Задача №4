@@ -1,0 +1,14 @@
+# Считываем три числа: старт, процент, дни
+m = int(input())
+p = int(input())
+n = int(input())
+
+current_population = m # Текущая популяция равна стартовой
+
+# Цикл от 1 до n (дни)
+for day in range(1, n + 1):
+    # Формула сложного процента: к текущей популяции прибавляем p процентов
+    current_population = current_population + (current_population * p / 100)
+    
+    # Выводим день и получившееся число (округленное до целого, так как организмы целые)
+    print(f"{day} {int(current_population)}")
