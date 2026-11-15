@@ -1,0 +1,21 @@
+import random
+
+# Программа загадывает число от 1 до 10
+secret_number = random.randint(1, 10)
+
+# Даем 3 попытки
+for attempt in range(3):
+    guess = int(input(f"Попытка {attempt + 1}. Введите число от 1 до 10: "))
+    
+    if guess == secret_number:
+        print("Угадали!")
+        break # Выходим из цикла, если угадали
+    else:
+        if guess < secret_number:
+            print("Неверно. Загаданное число больше.")
+        else:
+            print("Неверно. Загаданное число меньше.")
+            
+# Если цикл закончился, а мы так и не вышли через break, значит проиграли
+else: # Этот else относится к циклу for (срабатывает, если не было break)
+    print(f"Попытки закончились. Было загадано число: {secret_number}")
